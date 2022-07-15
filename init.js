@@ -193,10 +193,17 @@ return `
 		.logo img{
 			height:100% !important;
 		}
+		#lg-leaser{
+			height: 100vh;
+			
+		}
+		#lg-live{
+			display: none;
+		}
 		
 		@media screen and (max-width: 1000px) {
 			#bringin_stream_lyxel_wrapdiv .bringinflex {
-				display: block;
+				// display: block;
 			}
 			#bringin_stream_lyxel_player_with_overlay{
 				width:100%;
@@ -215,10 +222,16 @@ return `
 				border:none !important;
 				height:60vh;
 			}
+			#lg-leaser{
+				height: 100vh;
+			}
+			#lg-live{
+				display: none;
+			}
 		}
 		@media screen and (max-width: 480px) {
 			#bringin_stream_lyxel_wrapdiv .bringinflex {
-				display: block;
+				// display: block;
 			}
 			#bringin_stream_lyxel_player_with_overlay{
 				width:100%;
@@ -259,6 +272,12 @@ return `
 				opacity: 0.3;
 				background: black;
 				position: absolute;
+			}
+			#lg-leaser{
+				height: 100vh;
+			}
+			#lg-live{
+				display: none !importance;
 			}
 		}
 		
@@ -421,14 +440,19 @@ return  [
 function getHtml(){
 let products = getProducts()
 let html = `
-	<div class="bringinflex"> 
+	<div id="lg-leaser">
+		<video controls  autoplay="autoplay" loop muted width="100%" height="100%">
+			<source src="https://stream.mux.com/cVsQKesVczVzJ02isEbq02zunq9HlHk6iyU83gNhFH8O00/high.mp4" type="video/mp4">
+		</video>
+	</div>
+	<div class="bringinflex" id="lg-live"> 
 		<div id="bringin_stream_lyxel_player_with_overlay" >
 			<div class="logo" >
 				<img style="width:100%; height:100%" src="https://www.freepnglogos.com/uploads/lg-logo-png/lg-logo-electronics-icons-case-studies-jazzy-pro-2.png"/>
 			</div>
 			<div class="videoIframeOverlay"></div>
 			<iframe
-				// src="http://shiv-applic-rn11jez71uv5-1414797028.ap-south-1.elb.amazonaws.com:5080/WebRTCAppEE/play.html?name=test"
+				src="http://shiv-applic-rn11jez71uv5-1414797028.ap-south-1.elb.amazonaws.com:5080/WebRTCAppEE/play.html?name=test"
 				// src="https://lgteststream.lyxelandflamingotech.in:5443/WebRTCAppEE/play.html?name=570262715405146378764593" 
 				class="videIframe"
 				marginwidth="0"
@@ -623,3 +647,34 @@ addClone();
 moving = true;
 firstSlide.removeEventListener('transitionend', replaceToEnd);
 }
+
+//Start Pusher Code
+// Pusher.logToConsole = true;
+
+var pusher = new Pusher('97d648861f04b3db0d74', {
+    cluster: 'ap2'
+});
+
+var channel = pusher.subscribe('lg-stream');
+channel.bind('stream-started', function (data) {
+
+    // alert('Started');
+    if(data.streamEnabled == "TRUE"){
+        //Add code for showing chat div and product slider after this.
+		var lgLiveElement = document.getElementById("lg-live")
+			lgLiveElement.style.display="block"
+		var element = document.getElementById("lg-leaser")
+			element.style.display="none"
+        alert("Ready");
+    }
+	if(data.streamEnabled == "FALSE"){
+        //Add code for showing chat div and product slider after this.
+		var element = document.getElementById("lg-leaser")
+			element.style.display="block"
+		var lgLiveElement = document.getElementById("lg-live")
+			lgLiveElement.style.display="none"
+        alert("Teaser Ready");
+    }
+
+
+});
