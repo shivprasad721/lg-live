@@ -197,10 +197,11 @@ return `
 		}
 		#lg-leaser{
 			height: 100vh;
+			display:none;
 			
 		}
 		#lg-live{
-			display:none;
+			display:block;
 		}
 		
 		@media screen and (max-width: 1000px) {
@@ -226,9 +227,10 @@ return `
 			}
 			#lg-leaser{
 				height: 100vh;
+				display:none;
 			}
 			#lg-live{
-				display:none;
+				display:block;
 			}
 		}
 		@media screen and (max-width: 480px) {
@@ -277,10 +279,10 @@ return `
 			}
 			#lg-leaser{
 				height: 100vh;
-				display: block;
+				display: none;
 			}
 			#lg-live{
-				display: none;
+				display: block;
 			}
 			#bringin_stream_lyxel_wrapdiv .overlaydiv {
 				width: 100%; 
