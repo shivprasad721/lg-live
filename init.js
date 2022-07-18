@@ -1,3 +1,6 @@
+
+
+
 function addtoCart(sku){
 	let payload = {
 		"query": "mutation { addModelToCart(input: { cart_id: \"\", cartItems: [ { data: { sku: \""+sku+"\", qty: 1}, package_item_id: \"\", zipcode: \"110047\" } ] }) {redirectUrl cart { items { product { sku } qty}}}}",
@@ -125,7 +128,6 @@ return `
       font-weight: bolder;
 		}
 		.bringin_stream_lyxel_wrapdiv-carousel-arrow-icon-right {
-
 			font-size: 2.5vw;
       font-weight: bolder;
 		}
@@ -198,7 +200,7 @@ return `
 			
 		}
 		#lg-live{
-			display: none;
+			display:none;
 		}
 		
 		@media screen and (max-width: 1000px) {
@@ -226,7 +228,7 @@ return `
 				height: 100vh;
 			}
 			#lg-live{
-				display: none;
+				display:none;
 			}
 		}
 		@media screen and (max-width: 480px) {
@@ -243,7 +245,7 @@ return `
 			}
 			.bringinstreamchat{
 				width:100%;
-				height:100vh;
+				height: 80vh;
 				z-index: 9999;
 			}
 			.chatboxcontainer{
@@ -275,9 +277,65 @@ return `
 			}
 			#lg-leaser{
 				height: 100vh;
+				display: block;
 			}
 			#lg-live{
-				display: none !importance;
+				display: none;
+			}
+			#bringin_stream_lyxel_wrapdiv .overlaydiv {
+				width: 100%; 
+				font-size: 13px; 
+				text-align: left; 
+				color: white; 
+				padding-top: 16px; 
+				opacity: 1;
+				position: absolute;
+   				 bottom: 30px;
+			}
+			.bringin_stream_lyxel_wrapdiv-carousel {
+				position: relative;
+				z-index:55;
+				width: 92%;
+				height: 35vw; 
+				margin: 0 auto;
+				z-index: 9999999;
+			}
+			#bringin_stream_lyxel_wrapdiv img{
+				width: 34vw;
+				height: 100%;
+				max-width: inherit;
+				max-height: inherit;
+				border-radius: 30px;
+			}
+			#bringin_stream_lyxel_wrapdiv h1 {
+				font-family: sans-serif;
+				font-size: 2.9vw;
+				color: black;
+				font-weight: 600;
+				overflow-y: hidden;
+				line-height: inherit!important;
+				margin: revert!important;
+				margin-bottom: 0!important;
+				height: 10vw;
+			}
+			#bringin_stream_lyxel_wrapdiv .inactivestar {
+				color: grey;
+				font-size: 22px;
+			}
+			#bringin_stream_lyxel_wrapdiv .current_price{
+				color: black;
+				font-size: 4.0vw;
+				font-weight: bold;
+			}
+			#bringin_stream_lyxel_wrapdiv .original_price{
+				color: grey;
+				font-size: 3.0vw;
+				font-weight: bold;
+			}
+			#bringin_stream_lyxel_wrapdiv .discount {
+				color: red;
+				font-size: 3.0vw;
+				font-weight: bold;
 			}
 		}
 		
@@ -445,7 +503,7 @@ let html = `
 			<source src="https://stream.mux.com/cVsQKesVczVzJ02isEbq02zunq9HlHk6iyU83gNhFH8O00/high.mp4" type="video/mp4">
 		</video>
 	</div>
-	<div class="bringinflex" id="lg-live"> 
+	<div class="bringinflex" id="lg-live" > 
 		<div id="bringin_stream_lyxel_player_with_overlay" >
 			<div class="logo" >
 				<img style="width:100%; height:100%" src="https://www.freepnglogos.com/uploads/lg-logo-png/lg-logo-electronics-icons-case-studies-jazzy-pro-2.png"/>
@@ -511,8 +569,7 @@ html += `
 						</div>		
 					</div>		
 						
-`
-} 
+`} 
 html += `
 				</div>
 				<div class="bringin_stream_lyxel_wrapdiv-nav bringin_stream_lyxel_wrapdiv-nav-right">
@@ -522,7 +579,7 @@ html += `
 		</div>  
 	</div>		
 	</div>	
-` 
+`
 return html	
 }
 function renderHtmlDoc(){
@@ -531,6 +588,8 @@ let html = getHtml()
 let doc = style + html
 return doc 
 }
+// localStorage.setItem("streamEnabled",'FALSE');
+
 var wrapdiv = document.createElement("div");
 wrapdiv.style.width = "100%";
 wrapdiv.setAttribute('id','bringin_stream_lyxel_wrapdiv')
@@ -588,10 +647,10 @@ if ( window.innerWidth > 1900  ) {
 	 carouselDisplaying = 4	;}
 else if ( window.innerWidth >= 1200 ) {
 	carouselDisplaying = 4	;
-} else if ( window.innerWidth >= 300 ) {
+} else if ( window.innerWidth >= 480 ) {
 	carouselDisplaying = 2;
 } else {
-	carouselDisplaying = 2;
+	carouselDisplaying = 1;
 }
 getScreenSize();
 }
@@ -660,21 +719,41 @@ channel.bind('stream-started', function (data) {
 
     // alert('Started');
     if(data.streamEnabled == "TRUE"){
-        //Add code for showing chat div and product slider after this.
+        // Add code for showing chat div and product slider after this.
 		var lgLiveElement = document.getElementById("lg-live")
 			lgLiveElement.style.display="block"
+			
 		var element = document.getElementById("lg-leaser")
 			element.style.display="none"
-        alert("Ready");
+		getScreenSize()
+		localStorage.setItem("streamEnabled",'TRUE');
+		console.log("yes")
+        // alert("Ready");
     }
 	if(data.streamEnabled == "FALSE"){
-        //Add code for showing chat div and product slider after this.
+        // Add code for showing chat div and product slider after this.
 		var element = document.getElementById("lg-leaser")
 			element.style.display="block"
 		var lgLiveElement = document.getElementById("lg-live")
 			lgLiveElement.style.display="none"
-        alert("Teaser Ready");
+		getScreenSize()
+
+		localStorage.setItem("streamEnabled",'FALSE');
+		console.log("no")
+
+        // alert("Teaser Ready");
     }
-
-
 });
+
+
+if(localStorage.getItem('streamEnabled') == "TRUE"){
+	// Add code for showing chat div and product slider after this.
+	var lgLiveElement = document.getElementById("lg-live")
+		lgLiveElement.style.display="block"
+		
+	var element = document.getElementById("lg-leaser")
+		element.style.display="none"
+	getScreenSize()
+	// localStorage.setItem("streamEnabled",'TRUE');
+	// alert("Ready");
+}
