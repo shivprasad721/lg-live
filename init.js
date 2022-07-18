@@ -320,10 +320,6 @@ return `
 				margin-bottom: 0!important;
 				height: 10vw;
 			}
-			#bringin_stream_lyxel_wrapdiv .inactivestar {
-				color: grey;
-				font-size: 22px;
-			}
 			#bringin_stream_lyxel_wrapdiv .current_price{
 				color: black;
 				font-size: 4.0vw;
