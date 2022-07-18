@@ -241,7 +241,7 @@ return `
 				width:100%;
 				height:100vh ;
 				position:relative;
-				padding-right:10px;
+				padding-right:0px;
 				display: flex;
 				justify-content: center;
 			}
