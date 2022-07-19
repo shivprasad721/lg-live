@@ -239,7 +239,7 @@ return `
 			}
 			#bringin_stream_lyxel_player_with_overlay{
 				width:100%;
-				height:100vh ;
+				height:99vh ;
 				position:relative;
 				padding-right:0px;
 				display: flex;
@@ -502,10 +502,7 @@ let html = `
 		</video>
 	</div>
 	<div class="bringinflex" id="lg-live" > 
-		<div id="bringin_stream_lyxel_player_with_overlay" >
-			<div class="logo" >
-				<img style="width:100%; height:100%" src="https://www.freepnglogos.com/uploads/lg-logo-png/lg-logo-electronics-icons-case-studies-jazzy-pro-2.png"/>
-			</div>
+		<div id="bringin_stream_lyxel_player_with_overlay">
 			<div class="videoIframeOverlay"></div>
 			<iframe
 				src="http://shiv-applic-rn11jez71uv5-1414797028.ap-south-1.elb.amazonaws.com:5080/WebRTCAppEE/play.html?name=test"
