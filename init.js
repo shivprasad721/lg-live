@@ -335,6 +335,14 @@ return `
 				font-size: 3.0vw;
 				font-weight: bold;
 			}
+			.bringin_stream_lyxel_wrapdiv-carousel-arrow-icon-left {
+				font-size: 3.5vw;
+				font-weight: bolder;
+			}
+			.bringin_stream_lyxel_wrapdiv-carousel-arrow-icon-right {
+				font-size: 3.5vw;
+				font-weight: bolder;
+			}
 		}
 		
 	</style>`
