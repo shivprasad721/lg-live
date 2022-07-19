@@ -255,7 +255,7 @@ return `
 			.chatbox{
 				opacity:0;
 				border:none !important;
-				height:60vh;
+				height:65vh;
 				position:absolute;
 				bottom:0px;
 			}
