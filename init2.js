@@ -1,6 +1,3 @@
-
-
-
 function addtoCart(sku){
 	let payload = {
 		"query": "mutation { addModelToCart(input: { cart_id: \"\", cartItems: [ { data: { sku: \""+sku+"\", qty: 1}, package_item_id: \"\", zipcode: \"110047\" } ] }) {redirectUrl cart { items { product { sku } qty}}}}",
@@ -513,7 +510,8 @@ let html = `
 		<div id="bringin_stream_lyxel_player_with_overlay">
 			<div class="videoIframeOverlay"></div>
 			<iframe
-				src="http://shiv-applic-rn11jez71uv5-1414797028.ap-south-1.elb.amazonaws.com:5080/WebRTCAppEE/play.html?name=test"
+				src="https://stream.lyxellabs.com:/WebRTCAppEE/play.html?name=danish"
+				// src="https://stream.lyxellabs.com:5443/WebRTCAppEE/play.html?name=7plC5BVIhEoe1654493391509"
 				class="videIframe"
 				marginwidth="0"
 				marginheight="0"
@@ -718,7 +716,7 @@ var pusher = new Pusher('97d648861f04b3db0d74', {
 
 var channel = pusher.subscribe('lg-stream');
 channel.bind('stream-started', function (data) {
-
+    
     // alert('Started');
     if(data.streamEnabled == "TRUE"){
         // Add code for showing chat div and product slider after this.
