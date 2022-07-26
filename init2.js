@@ -182,24 +182,6 @@ return `
 			border:none !important;
 			height:60vh;
 		}
-		.logo{
-			position: absolute;
-			top: 3vh;
-			z-index: 1;
-			left: 2vw;
-			width:7vw
-		}
-		.logo img{
-			height:100% !important;
-		}
-		#lg-leaser{
-			height: 100vh;
-			display:none;
-			
-		}
-		#lg-live{
-			display:block;
-		}
 		
 		@media screen and (max-width: 1000px) {
 			#bringin_stream_lyxel_wrapdiv .bringinflex {
@@ -220,14 +202,7 @@ return `
 			.chatbox{
 				opacity:0;
 				border:none !important;
-				height:60vh;
-			}
-			#lg-leaser{
-				height: 100vh;
-				display:none;
-			}
-			#lg-live{
-				display:block;
+				height:57vh;
 			}
 		}
 		@media screen and (max-width: 480px) {
@@ -236,7 +211,7 @@ return `
 			}
 			#bringin_stream_lyxel_player_with_overlay{
 				width:100%;
-				height:99vh ;
+				height:100vh ;
 				position:relative;
 				padding-right:0px;
 				display: flex;
@@ -252,34 +227,17 @@ return `
 			.chatbox{
 				opacity:0;
 				border:none !important;
-				height:65vh;
+				height:75vh;
 				position:absolute;
 				bottom:0px;
 			}
-			.logo{
-				position: absolute;
-				top: 4vh;
-				z-index: 1;
-				left: 4vw;
-				width:18vw;
-			}
-			.logo img{
-				height:100% !important;
-			}
 			.videoIframeOverlay{
 				width: 100%;
-				height: 100vh;
+				height: 99vh;
 				z-index: 1;
 				opacity: 0.3;
 				background: black;
 				position: absolute;
-			}
-			#lg-leaser{
-				height: 100vh;
-				display: none;
-			}
-			#lg-live{
-				display: block;
 			}
 			#bringin_stream_lyxel_wrapdiv .overlaydiv {
 				width: 100%; 
@@ -289,7 +247,7 @@ return `
 				padding-top: 16px; 
 				opacity: 1;
 				position: absolute;
-   				 bottom: 30px;
+   				 bottom: 6vh;
 			}
 			.bringin_stream_lyxel_wrapdiv-carousel {
 				position: relative;
@@ -340,6 +298,7 @@ return `
 				font-size: 3.5vw;
 				font-weight: bolder;
 			}
+			
 		}
 		
 	</style>`
@@ -501,17 +460,12 @@ return  [
 function getHtml(){
 let products = getProducts()
 let html = `
-	<div id="lg-leaser">
-		<video controls  autoplay="autoplay" loop muted width="100%" height="100%">
-			<source src="https://stream.mux.com/cVsQKesVczVzJ02isEbq02zunq9HlHk6iyU83gNhFH8O00/high.mp4" type="video/mp4">
-		</video>
-	</div>
 	<div class="bringinflex" id="lg-live" > 
-		<div id="bringin_stream_lyxel_player_with_overlay">
+		<div id="bringin_stream_lyxel_player_with_overlay" >
 			<div class="videoIframeOverlay"></div>
 			<iframe
-				src="https://stream.lyxellabs.com:/WebRTCAppEE/play.html?name=danish"
-				// src="https://stream.lyxellabs.com:5443/WebRTCAppEE/play.html?name=7plC5BVIhEoe1654493391509"
+				src="http://43.204.228.229:5080/WebRTCAppEE/play.html?name=shiv"
+				// src="https://stream.lyxellabs.com:5443/WebRTCAppEE/play.html?name=7plC5BVIhEoe1654493391509" 
 				class="videIframe"
 				marginwidth="0"
 				marginheight="0"
@@ -707,53 +661,54 @@ moving = true;
 firstSlide.removeEventListener('transitionend', replaceToEnd);
 }
 
-//Start Pusher Code
-// Pusher.logToConsole = true;
+// //Start Pusher Code
+// document.write('<script src="https://js.pusher.com/7.1/pusher.min.js"></script>')
+// // Pusher.logToConsole = true;
+// var pusher = new Pusher('97d648861f04b3db0d74', {
+//     cluster: 'ap2'
+// });
 
-var pusher = new Pusher('97d648861f04b3db0d74', {
-    cluster: 'ap2'
-});
 
-var channel = pusher.subscribe('lg-stream');
-channel.bind('stream-started', function (data) {
-    
-    // alert('Started');
-    if(data.streamEnabled == "TRUE"){
-        // Add code for showing chat div and product slider after this.
-		var lgLiveElement = document.getElementById("lg-live")
-			lgLiveElement.style.display="block"
+// var channel = pusher.subscribe('lg-stream');
+// channel.bind('stream-started', function (data) {
+
+//     // alert('Started');
+//     if(data.streamEnabled == "TRUE"){
+//         // Add code for showing chat div and product slider after this.
+// 		var lgLiveElement = document.getElementById("lg-live")
+// 			lgLiveElement.style.display="block"
 			
-		var element = document.getElementById("lg-leaser")
-			element.style.display="none"
-		getScreenSize()
-		localStorage.setItem("streamEnabled",'TRUE');
-		console.log("yes")
-        // alert("Ready");
-    }
-	if(data.streamEnabled == "FALSE"){
-        // Add code for showing chat div and product slider after this.
-		var element = document.getElementById("lg-leaser")
-			element.style.display="block"
-		var lgLiveElement = document.getElementById("lg-live")
-			lgLiveElement.style.display="none"
-		getScreenSize()
+// 		var element = document.getElementById("lg-leaser")
+// 			element.style.display="none"
+// 		getScreenSize()
+// 		localStorage.setItem("streamEnabled",'TRUE');
+// 		console.log("yes")
+//         // alert("Ready");
+//     }
+// 	if(data.streamEnabled == "FALSE"){
+//         // Add code for showing chat div and product slider after this.
+// 		var element = document.getElementById("lg-leaser")
+// 			element.style.display="block"
+// 		var lgLiveElement = document.getElementById("lg-live")
+// 			lgLiveElement.style.display="none"
+// 		getScreenSize()
 
-		localStorage.setItem("streamEnabled",'FALSE');
-		console.log("no")
+// 		localStorage.setItem("streamEnabled",'FALSE');
+// 		console.log("no")
 
-        // alert("Teaser Ready");
-    }
-});
+//         // alert("Teaser Ready");
+//     }
+// });
 
 
-if(localStorage.getItem('streamEnabled') == "TRUE"){
-	// Add code for showing chat div and product slider after this.
-	var lgLiveElement = document.getElementById("lg-live")
-		lgLiveElement.style.display="block"
+// if(localStorage.getItem('streamEnabled') == "TRUE"){
+// 	// Add code for showing chat div and product slider after this.
+// 	var lgLiveElement = document.getElementById("lg-live")
+// 		lgLiveElement.style.display="block"
 		
-	var element = document.getElementById("lg-leaser")
-		element.style.display="none"
-	getScreenSize()
-	// localStorage.setItem("streamEnabled",'TRUE');
-	// alert("Ready");
-}
+// 	var element = document.getElementById("lg-leaser")
+// 		element.style.display="none"
+// 	getScreenSize()
+// 	// localStorage.setItem("streamEnabled",'TRUE');
+// 	// alert("Ready");
+// }
