@@ -464,13 +464,8 @@ let html = `
 		<div id="bringin_stream_lyxel_player_with_overlay" >
 			<div class="videoIframeOverlay"></div>
 			<iframe
-<<<<<<< HEAD
-				src="http://43.204.228.229:5080/WebRTCAppEE/play.html?name=shiv"
-				// src="https://stream.lyxellabs.com:5443/WebRTCAppEE/play.html?name=7plC5BVIhEoe1654493391509" 
-=======
 				src="https://43.204.228.229:5080/WebRTCAppEE/play.html?name=shiv"
 				// src="https://stream.lyxellabs.com:5443/WebRTCAppEE/play.html?name=7plC5BVIhEoe1654493391509"
->>>>>>> d348d932be9e0d0b37bfb7ff536475849d6067a5
 				class="videIframe"
 				marginwidth="0"
 				marginheight="0"
