@@ -394,7 +394,7 @@ return `
 			.bringin_stream_lyxel_wrapdiv-carousel {
 				position: relative;
 				width: 92%;
-				height: 45vw !important; 
+				height: 52vw !important; 
 				margin: 0 auto;
 			}
 			#bringin_stream_lyxel_wrapdiv img{
