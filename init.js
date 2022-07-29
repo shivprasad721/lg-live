@@ -31,6 +31,7 @@ function iframeMouseOut(){
 function getStyle(){
 return `
 	<style>
+
 		#bringin_stream_lyxel_wrapdiv h1{
 			font-family: sans-serif;
 			font-size: 0.7vw;
@@ -40,7 +41,19 @@ return `
 			line-height:inherit!important;
 			margin:revert!important;
 			margin-bottom:0!important;
-			height:3vw;
+			height:4vw;
+		}
+
+		#bringin_stream_lyxel_wrapdiv h2{
+			font-family: sans-serif;
+			padding: 0px; 
+			text-align: center; 
+			font-size: 2rem; 
+			color: #606060;			
+			overflow-y: hidden;
+			line-height:inherit!important;
+			margin-top : 0px !important;
+			// margin:10px 0px;
 		}
 		#bringin_stream_lyxel_wrapdiv .overlaydiv {
 			width: 100%; 
@@ -52,7 +65,7 @@ return `
 		}
 		#bringin_stream_lyxel_wrapdiv iframe{
 			width: 100%;
-			border: 1px solid #e4e4e4;
+			border: 0px solid #e4e4e4;
 		}
 		#bringin_stream_lyxel_wrapdiv button{
 			color: #fff!important;
@@ -78,19 +91,19 @@ return `
 			width: 7vw;
 			max-width: inherit;
 			max-height: inherit;
-			height: 5.5vw;
+			// height: 100%;
 			border-radius: 30px;
 		}
 		.videIframe{
 			background: black;
 			// background: linear-gradient(90deg, rgba(129,123,120,0.5158438375350141) 0%, rgba(108,103,100,0.6026785714285714) 35%, rgba(108,103,100,0.5718662464985995) 100%);
-
+			border-left: 10px solid white !important;
 		}
 		.bringin_stream_lyxel_wrapdiv-carousel {
 			position: relative;
 			z-index:55;
 			width: 92%;
-			height: 12vw; 
+			height: 13vw !important; 
 			margin: 0 auto;
 		}
 
@@ -107,7 +120,7 @@ return `
 		}
 		.bringin_stream_lyxel_wrapdiv-nav {
 			position: absolute;
-			top: 1.9vw;
+			top: 2.7vw;
 			z-index: 2;
 			cursor: pointer;
 			color: #A50034;
@@ -121,11 +134,11 @@ return `
 		}
 		.bringin_stream_lyxel_wrapdiv-carousel-arrow-icon-left {
 		
-			font-size: 2.5vw;
+			font-size: 3.5vw;
       font-weight: bolder;
 		}
 		.bringin_stream_lyxel_wrapdiv-carousel-arrow-icon-right {
-			font-size: 2.5vw;
+			font-size: 3.5vw;
       font-weight: bolder;
 		}
 		#bringin_stream_lyxel_wrapdiv .activestar{
@@ -147,9 +160,15 @@ return `
 			color: grey;
 			font-size: 0.65vw;
 			font-weight: bold;
+			text-decoration: line-through;
 		}
 		#bringin_stream_lyxel_wrapdiv .discount{
 			color: red;
+			font-size: 0.65vw;
+			font-weight: bold; 
+		}
+		#bringin_stream_lyxel_wrapdiv .discount-label{
+			color: #424242;
 			font-size: 0.65vw;
 			font-weight: bold; 
 		}
@@ -158,9 +177,10 @@ return `
 		}
 		#bringin_stream_lyxel_wrapdiv .bringinflex {   
 			position:relative;
+			border-top: 10px solid white;
 		}
 		#bringin_stream_lyxel_player_with_overlay{
-			width:100%;
+			width:70%;
 			height:60vh ;
 			position:relative;
 			padding-right:10px;
@@ -168,11 +188,12 @@ return `
 			justify-content: center;
 		}
 		.bringinstreamchat{
-			width:40%;
+			width:30%;
 			position:absolute;
 			top:0;
 			right:0;
-			height:80vh;
+			height:60vh;
+			border-left: 1px solid white;
 		}
 		.chatboxcontainer{
 			height:60vh;
@@ -182,84 +203,202 @@ return `
 			border:none !important;
 			height:60vh;
 		}
-		
-		@media screen and (max-width: 1000px) {
+		.videoChatContainer
+		{
+			display:flex;
+			background: black;
+		}
+		.dealBadgeContainer{
+			width:10vw;
+		}
+		.badge{
+			position: absolute;
+			top: 7px;
+			left: 18px;
+		}
+		.badgeContainer{
+			width:35px;
+		}
+		#bringin_s9999tream_lyxel_overlaydiv{
+			display:none
+		}
+		// #burst-12 {
+		// 	background: #cc0041;
+		// 	width: 20px;
+		// 	height: 20px;
+		// 	position: relative;
+		// 	text-align: center;
+		// 	font-family:
+		//   }
+		//   #burst-12:before,
+		//   #burst-12:after {
+		// 	content: "";
+		// 	position: absolute;
+		// 	top: 0;
+		// 	left: 0;
+		// 	height: 20px;
+		// 	width: 20px;
+		// 	background: red;
+		//   }
+		//   #burst-12:before {
+		// 	transform: rotate(30deg);
+		//   }
+		//   #burst-12:after {
+		// 	transform: rotate(60deg);
+		//   }
+		@media screen and (max-width: 1080px) {
 			#bringin_stream_lyxel_wrapdiv .bringinflex {
 				// display: block;
 			}
+			.videoChatContainer
+			{
+				display:flex;
+				background: black;
+			}
 			#bringin_stream_lyxel_player_with_overlay{
-				width:100%;
+				width:70%;
 			}
 
 			.bringinstreamchat{
-				width:100%;
-				margin-top:8vw
+				width:30%;
+				margin-top:0px
 			}
 			.chatboxcontainer{
 				height:60vh;
-
 			}
 			.chatbox{
 				opacity:0;
 				border:none !important;
 				height:57vh;
 			}
+			.bringin_stream_lyxel_wrapdiv-carousel {
+				position: relative;
+				width: 92%;
+				height: 25vw !important; 
+				margin: 0 auto;
+			}
+			#bringin_stream_lyxel_wrapdiv img{
+				width: 14vw;
+				max-width: inherit;
+				max-height: inherit;
+				border-radius: 30px;
+			}
+			#bringin_stream_lyxel_wrapdiv h1 {
+				font-family: sans-serif;
+				font-size: 1.5vw;
+				color:black;
+				font-weight: 600;
+				overflow-y: hidden;
+				line-height:inherit!important;
+				margin:revert!important;
+				margin-bottom:0!important;
+				height:8vw;
+			}
+			#bringin_stream_lyxel_wrapdiv .current_price{
+				color: black;
+				font-size: 1.85vw;
+				font-weight: bold;
+			}
+			#bringin_stream_lyxel_wrapdiv .original_price{
+				color: grey;
+				font-size: 1.65vw;
+				font-weight: bold;
+				text-decoration: line-through;
+			}
+			#bringin_stream_lyxel_wrapdiv .discount {
+				color: red;
+				font-size: 1.65vw;
+				font-weight: bold; 
+			}
+			#bringin_stream_lyxel_wrapdiv .discount-label {
+				color: #424242;
+				font-size: 1.65vw;
+				font-weight: bold; 
+			}
+			.bringin_stream_lyxel_wrapdiv-carousel-arrow-icon-left {
+				font-size: 4vw;
+				font-weight: bolder;
+			}
+			.bringin_stream_lyxel_wrapdiv-carousel-arrow-icon-right {
+				font-size: 4vw;
+				font-weight: bolder;
+			}
+			.bringin_stream_lyxel_wrapdiv-nav{
+				postion: absolute;
+				top: 6vh !important;
+			}
+			.bringin_stream_lyxel_wrapdiv-nav-left {
+				left: -2vw;
+			}
+			.bringin_stream_lyxel_wrapdiv-nav-right {
+				right: -2vw;
+			}
 		}
 		@media screen and (max-width: 480px) {
+
+			.videIframe{
+				background: black;
+				// background: linear-gradient(90deg, rgba(129,123,120,0.5158438375350141) 0%, rgba(108,103,100,0.6026785714285714) 35%, rgba(108,103,100,0.5718662464985995) 100%);
+				border-left: none !important;
+			}
+			#bringin_stream_lyxel_wrapdiv iframe{
+				border: none;
+				height:100%;
+			}
 			#bringin_stream_lyxel_wrapdiv .bringinflex {
-				// display: block;
+				display: block;
+				padding: 15px;
+				border-top: none;
 			}
 			#bringin_stream_lyxel_player_with_overlay{
 				width:100%;
-				height:100vh ;
+				height:30vh;
 				position:relative;
 				padding-right:0px;
 				display: flex;
 				justify-content: center;
 			}
+			.videoChatContainer
+			{
+				display:block;
+				background: transparent;
+			}
 			.bringinstreamchat{
 				width:100%;
-				height: 80vh;
-				z-index: 9999;
+				position: relative;
+				height:40vh;
+				margin-top:0px;
+				border: none;
 			}
 			.chatboxcontainer{
+				height:42vh;
+				border-top: 15px solid white;
+
 			}
 			.chatbox{
 				opacity:0;
 				border:none !important;
-				height:75vh;
-				position:absolute;
-				bottom:0px;
-			}
-			.videoIframeOverlay{
-				width: 100%;
-				height: 99vh;
-				z-index: 1;
-				opacity: 0.3;
-				background: black;
-				position: absolute;
+				height:40vh;
 			}
 			#bringin_stream_lyxel_wrapdiv .overlaydiv {
 				width: 100%; 
+				margin-top: 15px;
 				font-size: 13px; 
 				text-align: left; 
 				color: white; 
-				padding-top: 16px; 
+				padding-top: 15px;
 				opacity: 1;
+				top:70vh:
 				position: absolute;
-   				 bottom: 6vh;
 			}
 			.bringin_stream_lyxel_wrapdiv-carousel {
 				position: relative;
-				z-index:55;
 				width: 92%;
-				height: 35vw; 
+				height: 45vw !important; 
 				margin: 0 auto;
-				z-index: 9999999;
 			}
 			#bringin_stream_lyxel_wrapdiv img{
 				width: 34vw;
-				height: 100%;
 				max-width: inherit;
 				max-height: inherit;
 				border-radius: 30px;
@@ -273,7 +412,7 @@ return `
 				line-height: inherit!important;
 				margin: revert!important;
 				margin-bottom: 0!important;
-				height: 10vw;
+				height: 18vw;
 			}
 			#bringin_stream_lyxel_wrapdiv .current_price{
 				color: black;
@@ -284,19 +423,50 @@ return `
 				color: grey;
 				font-size: 3.0vw;
 				font-weight: bold;
+				text-decoration: line-through;
 			}
 			#bringin_stream_lyxel_wrapdiv .discount {
 				color: red;
 				font-size: 3.0vw;
 				font-weight: bold;
 			}
+			#bringin_stream_lyxel_wrapdiv .discount-label {
+				color: #424242;
+				font-size: 2.5vw;
+				font-weight: bold;
+			}
 			.bringin_stream_lyxel_wrapdiv-carousel-arrow-icon-left {
-				font-size: 3.5vw;
+				font-size: 12vw;
 				font-weight: bolder;
 			}
 			.bringin_stream_lyxel_wrapdiv-carousel-arrow-icon-right {
-				font-size: 3.5vw;
+				font-size: 12vw;
 				font-weight: bolder;
+			}
+			.bringin_stream_lyxel_wrapdiv-nav{
+				postion: absolute;
+				top: 10vh;
+			}
+			.bringin_stream_lyxel_wrapdiv-nav-left {
+				left: -5vw;
+			}
+			.bringin_stream_lyxel_wrapdiv-nav-right {
+				right: -5vw;
+			}
+			#bringin_stream_lyxel_wrapdiv h2{
+				font-family: sans-serif;
+				padding: 0px; 
+				text-align: center; 
+				font-size: 1.3rem; 
+				color: #606060;			
+				overflow-y: hidden;
+				line-height:inherit!important;
+				// margin-top : 0px !important;
+				// margin:10px 0px;
+			}
+			.dealBadgeContainer{
+				width:25vw !important;
+				text-align:center;
 			}
 			
 		}
@@ -306,38 +476,25 @@ return `
 function getProducts(){
 return  [
 	{ 
-		"product_sku": "MD07539889",
-		"product_name": "LG 32 L All in One NeoChef Charcoal Convection Microwave Oven (MJEN326UL)",
-		"product_img": "https://www.lg.com/in/images/microwave-ovens/md07539889/gallery/MJEN326UL-Microwave-ovens-Front-view-D-01.jpg",
-		"star": `
-		  <span class='inactivestar'>&#9733;</span>
-			<span class='inactivestar'>&#9733;</span>
-			<span class='inactivestar'>&#9733;</span>
-			<span class='inactivestar'>&#9733;</span>
-			<span class='inactivestar'>&#9733;</span>
-		`,
-		"original_price": '29999',
-		"current_price": '23799',
-		"discount": '20',
-	},
-	{ 
-		"product_sku": "MD07521913",
-		"product_name": "LG 28 L All In One Microwave Oven (MJEN286UH)",
-		"product_img": "https://www.lg.com/in/images/microwave-ovens/md07521913/gallery/MJEN286UH-Microwave-ovens-Front-view-with-logo-D-01.jpg",
+		"product_sku": "MC2886BHT",
+		"product_name": "LG 28 L Convection Microwave Oven with Diet Fry",
+		"modal_and_color": "(MC2886BHT, Black)",
+		"product_img": "https://www.lg.com/in/images/microwave-ovens/md07536273/gallery/MC2886BHT-Microwave-ovens-Front-view-with-logo-D-01.jpg",
 		"star": `
 		  <span class='activestar'>&#9733;</span>
 			<span class='activestar'>&#9733;</span>
 			<span class='activestar'>&#9733;</span>
-			<span class='inactivestar'>&#9733;</span>
-			<span class='inactivestar'>&#9733;</span>
+			<span class='activestar'>&#9733;</span>
+			<span class='activestar'>&#9733;</span>
 		`,
-		"original_price": '25499',
-		"current_price": '20700',
-		"discount": '18',
+		"original_price": '19099',
+		"current_price": '13369',
+		"discount": '30',
 	},
 	{ 
-		"product_sku": "MD06198196",
-		"product_name": "LG 32 L With Twister Smog Handle Convection Microwave Oven  (MJEN326SF, Black)",
+		"product_sku": "MJEN326SF",
+		"product_name": "LG 32 L With Twister Smog Handle Convection Microwave Oven  ",
+		"modal_and_color": "(MJEN326SF, Black)",
 		"product_img": "https://www.lg.com/in/images/microwave-ovens/md06198196/gallery/MJEN326SF-Microoven-Front-View-D-01.jpg",
 		"star": `
 		  <span class='activestar'>&#9733;</span>
@@ -347,42 +504,29 @@ return  [
 			<span class='activestar'>&#9733;</span>
 		`,
 		"original_price": '35999',
-		"current_price": '29799',
-		"discount": '17',
+		"current_price": '25201',
+		"discount": '30',
 	},
 	{ 
-		"product_sku": "MD06212716",
-		"product_name": "LG 32 L Convection Microwave Oven  (MJEN326PK, Black)",
-		"product_img": "https://www.lg.com/in/images/microwave-ovens/md06212716/gallery/Medium_01.jpg",
+		"product_sku": "MC2886BFUM",
+		"product_name": "LG Convection Healthy Ovens",
+		"modal_and_color": "(MC2886BFUM, Black)",
+		"product_img": "https://www.lg.com/in/images/microwave-ovens/md05850416/gallery/MC2886BFUM-microwave-ovens-Front-view-D-01.jpg",
 		"star": `
-		  <span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
-		`,
-		"original_price": '32499',
-		"current_price": '26099',
-		"discount": '19',
-	},
-	{ 
-		"product_sku": "MD06212517",
-		"product_name": "LG 32 L Convection Microwave Oven  (MJEN326UH, Black)",
-		"product_img": "https://www.lg.com/in/images/microwave-ovens/md06212517/gallery/Medium_01_v.jpg",
-		"star": `
-		  <span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
+		  <span class='inactivestar'>&#9733;</span>
+			<span class='inactivestar'>&#9733;</span>
 			<span class='inactivestar'>&#9733;</span>
 			<span class='inactivestar'>&#9733;</span>
 			<span class='inactivestar'>&#9733;</span>
 		`,
-		"original_price": '31499',
-		"current_price": '25199',
-		"discount": '20',
+		"original_price": '20499',
+		"current_price": '14350',
+		"discount": '30',
 	},
 	{ 
-		"product_sku": "MD06198076",
-		"product_name": "LG 32 L With Twister Smog Handle Convection Microwave Oven  (MJEN326TL, Black)",
+		"product_sku": "MJEN326TL",
+		"product_name": "LG 32 L With Twister Smog Handle Convection Microwave Oven",
+		"modal_and_color": "(MJEN326TL, Black)",
 		"product_img": "https://www.lg.com/in/images/microwave-ovens/md06198076/gallery/MJEN326TL-Microoven-Front-View-D-01.jpg",
 		"star": `
 		  <span class='activestar'>&#9733;</span>
@@ -392,80 +536,173 @@ return  [
 			<span class='inactivestar'>&#9733;</span>
 		`,
 		"original_price": '29199',
-		"current_price": '22099',
-		"discount": '24',
+		"current_price": '20441',
+		"discount": '30',
 	},
-	{ 
-		"product_sku": "MD07514625",
-		"product_name": "LG 28 L All In One Microwave Oven (MJEN286UF)",
-		"product_img": "https://www.lg.com/in/images/microwave-ovens/md07514625/gallery/MJEN286UF-Microwave-ovens-Front-view-D-01.jpg",
-		"star": `
-		  <span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
-		`,
-		"original_price": '25999',
-		"current_price": '21199',
-		"discount": '18',
+	{
+	"product_sku": "MC2886BLT",
+	"product_name": "LG 28 L Convection Microwave Oven  ",
+	"modal_and_color": "(MC2886BLT, Black)",
+	"product_img": "https://www.lg.com/in/images/microwave-ovens/md06116836/gallery/01-1100X730-v1.jpg",
+	"star": `
+	  <span class='inactivestar'>&#9733;</span>
+		<span class='inactivestar'>&#9733;</span>
+		<span class='inactivestar'>&#9733;</span>
+		<span class='inactivestar'>&#9733;</span>
+		<span class='inactivestar'>&#9733;</span>
+	`,
+	"original_price": '18799',
+	"current_price": '13159',
+	"discount": '30',
 	},
-	{ 
-		"product_sku": "MD05940242",
-		"product_name": "LG 28 L Convection Microwave Oven  (MJ2886BWUM, Black)",
-		"product_img": "https://www.lg.com/in/images/microwave-ovens/md05940242/gallery/medium01.jpg",
-		"star": `
-		  <span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
-		`,
-		"original_price": '24299',
-		"current_price": '19900',
-		"discount": '18',
-	},
-	{ 
-		"product_sku": "MD05875176",
-		"product_name": "LG 28 L Convection & Grill Microwave Oven  (MJ2886BFUM.DBKQILN, Black)",
-		"product_img": "https://www.lg.com/in/images/microwave-ovens/md05875176/gallery/MJ2886BFUM-Microwave-ovens-Front-view-D-01.jpg",
-		"star": `
-		  <span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
-			<span class='activestar'>&#9733;</span>
-		`,
-		"original_price": '23799',
-		"current_price": '19399',
-		"discount": '18',
-	},
-	{ 
-		"product_sku": "MD07544165",
-		"product_name": "LG Charcoal Healthy Ovens",
-		"product_img": "https://www.lg.com/in/images/microwave-ovens/md07544165/gallery/MJ2887BFUM-D-01.jpg",
-		"star": `
-		  <span class='inactivestar'>&#9733;</span>
-			<span class='inactivestar'>&#9733;</span>
-			<span class='inactivestar'>&#9733;</span>
-			<span class='inactivestar'>&#9733;</span>
-			<span class='inactivestar'>&#9733;</span>
-		`,
-		"original_price": '23999',
-		"current_price": '19599',
-		"discount": '18',
-	}
+	// {
+	// 	"product_sku": "MS4295DIS",
+	// 	"product_name": "LG 42 L Inverter Solo Microwave Oven  ",
+	// 	"modal_and_color": "(MS4295DIS, Black)",
+	// 	"product_img": "https://www.lg.com/in/images/microwave-ovens/md05917016/gallery/D-01.jpg",
+	// 	"star": `
+	// 	  <span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 	`,
+	// 	"original_price": '18499',
+	// 	"current_price": '13204',
+	// 	"discount": '30',
+	// },
+	// { 
+	// 	"product_sku": "MD07539889",
+	// 	"product_name": "LG 32 L All in One NeoChef Charcoal Convection Microwave Oven (MJEN326UL)",
+	// 	"product_img": "https://www.lg.com/in/images/microwave-ovens/md07539889/gallery/MJEN326UL-Microwave-ovens-Front-view-D-01.jpg",
+	// 	"star": `
+	// 	  <span class='inactivestar'>&#9733;</span>
+	// 		<span class='inactivestar'>&#9733;</span>
+	// 		<span class='inactivestar'>&#9733;</span>
+	// 		<span class='inactivestar'>&#9733;</span>
+	// 		<span class='inactivestar'>&#9733;</span>
+	// 	`,
+	// 	"original_price": '29999',
+	// 	"current_price": '23799',
+	// 	"discount": '20',
+	// },
+	// { 
+	// 	"product_sku": "MD07521913",
+	// 	"product_name": "LG 28 L All In One Microwave Oven (MJEN286UH)",
+	// 	"product_img": "https://www.lg.com/in/images/microwave-ovens/md07521913/gallery/MJEN286UH-Microwave-ovens-Front-view-with-logo-D-01.jpg",
+	// 	"star": `
+	// 	  <span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='inactivestar'>&#9733;</span>
+	// 		<span class='inactivestar'>&#9733;</span>
+	// 	`,
+	// 	"original_price": '25499',
+	// 	"current_price": '20700',
+	// 	"discount": '18',
+	// },
+
+	// { 
+	// 	"product_sku": "MD06212716",
+	// 	"product_name": "LG 32 L Convection Microwave Oven  (MJEN326PK, Black)",
+	// 	"product_img": "https://www.lg.com/in/images/microwave-ovens/md06212716/gallery/Medium_01.jpg",
+	// 	"star": `
+	// 	  <span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 	`,
+	// 	"original_price": '32499',
+	// 	"current_price": '26099',
+	// 	"discount": '19',
+	// },
+	// { 
+	// 	"product_sku": "MD06212517",
+	// 	"product_name": "LG 32 L Convection Microwave Oven  (MJEN326UH, Black)",
+	// 	"product_img": "https://www.lg.com/in/images/microwave-ovens/md06212517/gallery/Medium_01_v.jpg",
+	// 	"star": `
+	// 	  <span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='inactivestar'>&#9733;</span>
+	// 		<span class='inactivestar'>&#9733;</span>
+	// 		<span class='inactivestar'>&#9733;</span>
+	// 	`,
+	// 	"original_price": '31499',
+	// 	"current_price": '25199',
+	// 	"discount": '20',
+	// },
+
+	// { 
+	// 	"product_sku": "MD07514625",
+	// 	"product_name": "LG 28 L All In One Microwave Oven (MJEN286UF)",
+	// 	"product_img": "https://www.lg.com/in/images/microwave-ovens/md07514625/gallery/MJEN286UF-Microwave-ovens-Front-view-D-01.jpg",
+	// 	"star": `
+	// 	  <span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 	`,
+	// 	"original_price": '25999',
+	// 	"current_price": '21199',
+	// 	"discount": '18',
+	// },
+	// { 
+	// 	"product_sku": "MD05940242",
+	// 	"product_name": "LG 28 L Convection Microwave Oven  (MJ2886BWUM, Black)",
+	// 	"product_img": "https://www.lg.com/in/images/microwave-ovens/md05940242/gallery/medium01.jpg",
+	// 	"star": `
+	// 	  <span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 	`,
+	// 	"original_price": '24299',
+	// 	"current_price": '19900',
+	// 	"discount": '18',
+	// },
+	// { 
+	// 	"product_sku": "MD05875176",
+	// 	"product_name": "LG 28 L Convection & Grill Microwave Oven  (MJ2886BFUM.DBKQILN, Black)",
+	// 	"product_img": "https://www.lg.com/in/images/microwave-ovens/md05875176/gallery/MJ2886BFUM-Microwave-ovens-Front-view-D-01.jpg",
+	// 	"star": `
+	// 	  <span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 		<span class='activestar'>&#9733;</span>
+	// 	`,
+	// 	"original_price": '23799',
+	// 	"current_price": '19399',
+	// 	"discount": '18',
+	// },
+	// { 
+	// 	"product_sku": "MD07544165",
+	// 	"product_name": "LG Charcoal Healthy Ovens",
+	// 	"product_img": "https://www.lg.com/in/images/microwave-ovens/md07544165/gallery/MJ2887BFUM-D-01.jpg",
+	// 	"star": `
+	// 	  <span class='inactivestar'>&#9733;</span>
+	// 		<span class='inactivestar'>&#9733;</span>
+	// 		<span class='inactivestar'>&#9733;</span>
+	// 		<span class='inactivestar'>&#9733;</span>
+	// 		<span class='inactivestar'>&#9733;</span>
+	// 	`,
+	// 	"original_price": '23999',
+	// 	"current_price": '19599',
+	// 	"discount": '18',
+	// }
 ]
 }
 function getHtml(){
 let products = getProducts()
 let html = `
 	<div class="bringinflex" id="lg-live" > 
+	 <div class="videoChatContainer" >
 		<div id="bringin_stream_lyxel_player_with_overlay" >
-			<div class="videoIframeOverlay"></div>
 			<iframe
-				// src=""
-				// src="https://stream.lyxellabs.com:5443/WebRTCAppEE/play.html?name=7plC5BVIhEoe1654493391509" 
+				src="https://stream.lyxellabs.com:/WebRTCAppEE/play.html?name=JFi7f1zLi0Xt1659003787397" 
 				class="videIframe"
 				marginwidth="0"
 				marginheight="0"
@@ -480,17 +717,22 @@ let html = `
 				id="bringin_stream_lyxel_iframe" 
 				
 			>
-            <video  autoplay="true" controls muted>
-                <source src="https://43.204.228.229:5080/WebRTCAppEE/play.html?name=shiv" type="video/mp4">
-            </video>
 			</iframe>
 		</div> 	
 		<div class="bringinstreamchat">
-			<div class="chatboxcontainer">
-				<iframe scrolling="no" class="chatbox"  onload="this.style.opacity=1;" src="https://chat.lyxelandflamingotech.in/chat"></iframe>
+			<div class="chatboxcontainer" >
+				<iframe scrolling="no" class="chatbox"  onload="this.style.opacity=1;" src="https://chat.lyxelandflamingotech.in/"></iframe>
+			</div>
+		</div>
+	  </div>
+	  	
+	  <div id="bringin_s9999tream_lyxel_overlaydiv" onmouseover="iframeMouseOver();" class="overlaydiv ">
+		<div style="display: flex; justify-content: center; margin-bottom: 15px;">
+			<div class="dealBadgeContainer">
+				<img  src="https://bringin-core.sgp1.cdn.digitaloceanspaces.com/klqmgu/deal.jpeg" style="width:100%"/> 
 			</div>
 		</div>	
-		<div id="bringin_stream_lyxel_overlaydiv" onmouseover="iframeMouseOver();" class="overlaydiv">
+	
 		<div>
 			<div class="bringin_stream_lyxel_wrapdiv-carousel">
 				<div class="bringin_stream_lyxel_wrapdiv-nav bringin_stream_lyxel_wrapdiv-nav-left">
@@ -502,20 +744,27 @@ for(let [idx,dataset] of products.entries()){
 html += `
 				 
 					<div class="bringin_stream_lyxel_wrapdiv-slide">
-						<div onclick="addtoCart('`+ dataset.product_sku +`');"  style="padding-left:10px;cursor:pointer">
+						<div onclick="addtoCart('`+ dataset.product_sku +`');"  style="padding: 0px 10px;cursor:pointer">
 							<div style="background: white;border-radius: 10px;border: 1px solid silver;">
-							  <div style="display: flex;">  
+							  <div style="display: flex;">
+							  		<div class="badge">
+									  <div class="badgeContainer">
+									  	<img  src="https://bringin-core.sgp1.cdn.digitaloceanspaces.com/klqmgu/hot-selling-small.png" style="width:100%"/> 
+									  </div>
+									</div>
 									<div>
 										<img src="`+dataset.product_img+`">
 									</div>
 									<div style="padding-left:1px;padding-right:10px; padding-top: 0px;"> 
-										<h1>` + dataset.product_name +`</h1>
+										<h1>` + dataset.product_name +`</br>`+ dataset.modal_and_color +`</h1>
 										<p>` + dataset.star +`</p>
 										<p style="margin-top:0.3vw!important">` + `
 											<span class="current_price">₹` + dataset.current_price + `</span>
 											<span class="original_price">₹` + dataset.original_price + `</span>
 											<span class="discount">` + dataset.discount + `% Off</span>
+											<span class="discount-label"></br>(Inclusive of 5% Sign up Discount*)</span>
 										</p> 
+
 									</div>
 								</div>	
 								<div style="padding: 0vw 1.2vw 1vw 1.2vw">
@@ -532,9 +781,10 @@ html += `
 				<div class="bringin_stream_lyxel_wrapdiv-nav bringin_stream_lyxel_wrapdiv-nav-right">
 					<div class="bringin_stream_lyxel_wrapdiv-carousel-arrow-icon-right">&gt;</div>
 				</div>
+
 			</div>
 		</div>  
-	</div>		
+	</div>	
 	</div>	
 `
 return html	
@@ -586,17 +836,18 @@ slidesArray.forEach(function(el, i){
 });
 addClone();
 }
-moveSlidesRight();
-function moveSlidesLeft() {
-var slides = document.querySelectorAll('.bringin_stream_lyxel_wrapdiv-slide');
-var slidesArray = Array.prototype.slice.call(slides);
-slidesArray = slidesArray.reverse();
-var maxWidth = (slidesArray.length - 1) * lengthOfSlide;
 
-slidesArray.forEach(function(el, i){
-	maxWidth -= lengthOfSlide;
-	el.style.left = maxWidth + "px";
-});
+moveSlidesRight();
+	function moveSlidesLeft() {
+	var slides = document.querySelectorAll('.bringin_stream_lyxel_wrapdiv-slide');
+	var slidesArray = Array.prototype.slice.call(slides);
+	slidesArray = slidesArray.reverse();
+	var maxWidth = (slidesArray.length - 1) * lengthOfSlide;
+
+	slidesArray.forEach(function(el, i){
+		maxWidth -= lengthOfSlide;
+		el.style.left = maxWidth + "px";
+	});
 }
 window.addEventListener('resize', setScreenSize);
 function setScreenSize() {
@@ -637,6 +888,7 @@ if ( moving ) {
 	moveSlidesRight();
 }
 }
+setInterval(moveLeft, 4000);
 function activateAgain() {
 var firstSlide = carouselContent.firstElementChild;
 moving = true;
@@ -655,14 +907,55 @@ if ( moving ) {
 }
 }
 function replaceToEnd() {
-var firstSlide = carouselContent.firstElementChild;
-firstSlide.parentNode.removeChild(firstSlide);
-carouselContent.appendChild(firstSlide);
-firstSlide.style.left = ( (arrayOfSlides.length -1) * lengthOfSlide) + "px";
-addClone();
-moving = true;
-firstSlide.removeEventListener('transitionend', replaceToEnd);
+	var firstSlide = carouselContent.firstElementChild;
+	firstSlide.parentNode.removeChild(firstSlide);
+	carouselContent.appendChild(firstSlide);
+	firstSlide.style.left = ( (arrayOfSlides.length -1) * lengthOfSlide) + "px";
+	addClone();
+	moving = true;
+	firstSlide.removeEventListener('transitionend', replaceToEnd);
 }
+// Banner Update
+// localStorage.setItem("bannerUpdate",'TRUE');
+// var xhr = new XMLHttpRequest();
+// 	xhr.withCredentials = true;
+
+// 	xhr.addEventListener("readystatechange", function() {
+// 	if(this.readyState === 4) {
+// 		console.log("check xhr",this.responseText);
+// 	}
+// 	});
+
+// 	xhr.open("GET", "https://bringin-core.sgp1.digitaloceanspaces.com/klqmgu/config.json");
+
+// 	xhr.send();
+// updateBanner()
+// setInterval(updateBanner, 1000);
+var requestOptions = {
+	method: 'GET',
+	redirect: 'follow',
+	mode : 'no-cors'
+	};
+	
+	fetch("https://bringin-core.sgp1.digitaloceanspaces.com/klqmgu/config.json", requestOptions)
+	.then(response => console.log(response.text())).then(result => console.log("check result",result.parse()))
+	.catch(error => console.log('error', error));
+
+	let bannerUpate = localStorage.getItem('bannerUpdate')
+	if(bannerUpate=='TRUE')
+	{
+		var bannerUpateStyle = document.getElementById("bringin_s9999tream_lyxel_overlaydiv")
+		bannerUpateStyle.style.display="block"
+		getScreenSize()
+
+	}
+	if(bannerUpate=='FALSE')
+	{
+		var bannerUpateStyle = document.getElementById("bringin_s9999tream_lyxel_overlaydiv")
+		bannerUpateStyle.style.display="none"
+		getScreenSize()
+
+	}
 
 // //Start Pusher Code
 // document.write('<script src="https://js.pusher.com/7.1/pusher.min.js"></script>')
